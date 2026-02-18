@@ -76,6 +76,13 @@ const projects: Project[] = [
     tags: ['Python', 'Pygame', 'Algorithmique', 'Game Dev'],
     image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?auto=format&fit=crop&q=80&w=1000'
   },
+  {
+    id: 10,
+    title: 'Application Bancaire Java',
+    description: 'Développement d’une application bancaire en Java avec interface graphique (IHM). Le projet a nécessité la rédaction complète d\'un cahier des charges et une organisation rigoureuse du travail d\'équipe.',
+    tags: ['Java', 'IHM', 'Swing', 'Gestion de projet'],
+    image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=1000'
+  }
 ];
 
 const Projects: React.FC = () => {

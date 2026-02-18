@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                 {/* Socials */}
                 <div className="flex items-center gap-6">
                     <motion.a 
-                        href="https://github.com" 
+                        href="https://github.com/AMAYZING31" 
                         target="_blank" 
                         rel="noreferrer"
                         whileHover={{ y: -3 }}
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
                         <Github size={24} />
                     </motion.a>
                     <motion.a 
-                        href="https://linkedin.com" 
+                        href="https://www.linkedin.com/in/sidney-richards-67897938b/" 
                         target="_blank" 
                         rel="noreferrer"
                         whileHover={{ y: -3 }}

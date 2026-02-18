@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageSquare, Loader2, Github, Linkedin } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,12 +12,32 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form data:', formData);
-    alert('Merci ! Votre message a bien été envoyé (Simulation).');
-    setFormData({ name: '', email: '', subject: 'Opportunité de stage/alternance', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Sidney', 
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      alert('Merci ! Votre message a bien été envoyé.');
+      setFormData({ name: '', email: '', subject: 'Opportunité de stage/alternance', message: '' });
+    } catch (error) {
+      console.error('Erreur d\'envoi:', error);
+      alert('Une erreur est survenue. Veuillez réessayer ou utiliser mon adresse email directe.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -80,6 +102,28 @@ const Contact = () => {
                   <p className="text-xs text-foreground/40 uppercase tracking-widest mb-1">Localisation</p>
                   <p className="font-mono text-base md:text-lg">Toulouse, France</p>
                 </div>
+              </div>
+
+              <div className="flex gap-4">
+                  <a href="https://github.com/AMAYZING31" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center space-x-4 text-foreground/80 hover:text-primary transition-colors group/link p-4 rounded-xl bg-surface hover:bg-white/5 border border-white/5">
+                    <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-black transition-all shrink-0">
+                      <Github size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-foreground/40 uppercase tracking-widest mb-1">GitHub</p>
+                      <p className="font-mono text-sm">AMAYZING31</p>
+                    </div>
+                  </a>
+
+                  <a href="https://www.linkedin.com/in/sidney-richards-67897938b/" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center space-x-4 text-foreground/80 hover:text-primary transition-colors group/link p-4 rounded-xl bg-surface hover:bg-white/5 border border-white/5">
+                    <div className="w-12 h-12 rounded-full bg-background flex items-center justify-center group-hover/link:bg-primary group-hover/link:text-black transition-all shrink-0">
+                      <Linkedin size={20} />
+                    </div>
+                    <div>
+                      <p className="text-xs text-foreground/40 uppercase tracking-widest mb-1">LinkedIn</p>
+                      <p className="font-mono text-sm">Sidney Richards</p>
+                    </div>
+                  </a>
               </div>
             </div>
           </div>
@@ -146,9 +190,17 @@ const Contact = () => {
               />
             </div>
 
-            <button type="submit" className="w-full bg-foreground text-background font-bold py-4 rounded-xl hover:bg-primary hover:text-white transition-colors flex items-center justify-center space-x-2 group shadow-lg shadow-black/20">
-              <span>Envoyer le message</span>
-              <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="w-full bg-foreground text-background font-bold py-4 rounded-xl hover:bg-primary hover:text-white transition-colors flex items-center justify-center space-x-2 group shadow-lg shadow-black/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <span>{isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}</span>
+              {isSubmitting ? (
+                <Loader2 size={18} className="animate-spin" />
+              ) : (
+                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+              )}
             </button>
           </form>
         </motion.div>
