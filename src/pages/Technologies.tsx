@@ -21,7 +21,7 @@ import DockerIcon from '../assets/skills/Docker.svg';
 import LinuxIcon from '../assets/skills/Linux.svg';
 // import ChartjsIcon from '../assets/skills/Chartjs.svg'; // Skipping as unsure of case
 import HTMLIcon from '../assets/skills/HTML.svg';
-import CSSIcon from '../assets/skills/CSS.png';
+import CSSIcon from '../assets/skills/css.png';
 import BashIcon from '../assets/skills/Bash.svg';
 import SpringIcon from '../assets/skills/spring.png';
 import GodotIcon from '../assets/skills/godot.png';
