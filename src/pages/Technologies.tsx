@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Code2, Globe, Database, Terminal, Layout } from 'lucide-react';
 
 // Import SVG icons
-import JavaIcon from '../assets/skills/Java.png';
+import JavaIcon from '../assets/skills/java.png';
 import PythonIcon from '../assets/skills/Python.svg';
 import TypeScriptIcon from '../assets/skills/TypeScript.svg';
 import JavaScriptIcon from '../assets/skills/JavaScript.svg';
