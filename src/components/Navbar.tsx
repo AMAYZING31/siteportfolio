@@ -12,10 +12,10 @@ const Navbar: React.FC = () => {
 
   const links = [
     { name: 'À propos', path: '/about' },
-    { name: 'Compétences', path: '/skills' },
-    { name: 'Exp.', path: '/experience' }, // Shortened for pill layout
+    { name: 'Compétences', path: '/competences' },
+    { name: 'Technologies', path: '/technologies' },
+    { name: 'Exp.', path: '/experience' },
     { name: 'Projets', path: '/projects' },
-    { name: 'Portfolio', path: '/portfolio' },
     { name: 'CV', path: '/cv' },
     { name: 'Contact', path: '/contact' },
   ];

@@ -6,10 +6,10 @@ import Layout from './layout/Layout';
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
-import Skills from './pages/Skills';
+import Technologies from './pages/Technologies';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
-import Portfolio from './pages/Portfolio';
+import Competences from './pages/Competences';
 import CV from './pages/CV';
 import Contact from './pages/Contact';
 
@@ -33,10 +33,10 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/skills" element={<Skills />} />
+            <Route path="/competences" element={<Competences />} />
+            <Route path="/technologies" element={<Technologies />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/cv" element={<CV />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

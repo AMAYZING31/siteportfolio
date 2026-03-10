@@ -72,7 +72,7 @@ const competences: CompetenceSection[] = [
     }
 ];
 
-const Portfolio: React.FC = () => {
+const Competences: React.FC = () => {
     return (
         <div className="w-full relative px-4 py-20">
              {/* Background decoration */}
@@ -87,7 +87,7 @@ const Portfolio: React.FC = () => {
                 >
                     <h2 className="text-secondary tracking-widest uppercase font-bold text-sm mb-4">Bilan de Compétences</h2>
                     <h3 className="font-display font-bold text-5xl md:text-7xl text-foreground">
-                        Portfolio <span className="text-stroke-primary">S5-S6</span>
+                        Compétences <span className="text-stroke-primary">du BUT</span>
                     </h3>
                     <p className="max-w-2xl mx-auto text-foreground/60 text-lg mt-6">
                         Une vue détaillée de ma progression et de l'acquisition de compétences clés à travers mes projets et expériences professionnelles.
@@ -163,4 +163,4 @@ const Portfolio: React.FC = () => {
     );
 };
 
-export default Portfolio;
+export default Competences;
